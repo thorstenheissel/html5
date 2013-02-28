@@ -1,0 +1,35 @@
+@import "../lib/jquery.mobile.css";
+
+/*
+label.ui-input-text {
+    vertical-align: middle;
+}
+*/
+
+.login-logo {
+	padding-left: 40%;
+	padding-top: 15px;
+}
+
+.error {
+    background-color: red;
+    color: white;
+    padding:  10px
+}
+
+input.ng-invalid {
+    border: 2px solid red;
+}
+
+.success {
+    background-color: green;
+    color: white;
+    padding:  10px
+}
+
+.info {
+    background-color: yellow;
+    color: #000000;
+    padding:  10px
+}
+

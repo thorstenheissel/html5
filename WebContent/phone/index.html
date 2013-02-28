@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="entarena">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+
+    <!-- make page testable for jasmine ui -->
+    <script type="text/javascript">eval(sessionStorage.jasmineui);</script>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/communication.css">
+    <script src="lib/require.js" data-main="main"></script>
+    
+  
+
+    <title>ENTARENA</title>
+</head>
+<body>
+
+<div id="welcomePage" data-role="page" ngm-shared-controller="auth:entarena.AuthenticationController"
+						ngm-pagebeforeshow="auth.gotoLogin()">
+    <div >
+        <img alt="Logo" src="icons/t.jpg" >
+    </div>
+ 
+</div>
+
+
+</body>
+</html>

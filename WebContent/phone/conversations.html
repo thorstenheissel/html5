@@ -1,0 +1,52 @@
+<div id="welcomePage" data-role="page"
+	ngm-shared-controller="comm:entarena.CommunicationController,auth:entarena.AuthenticationController"
+	ngm-pagebeforeshow="comm.loadConversations()"
+	data-title="Conversations">
+	<div data-role="header">
+		<a class="ui-btn-left" href="" data-icon="entarena-workspace" data-iconpos="left">Entarena</a>
+		<h1>{{auth.customer().profile.login}}</h1>
+		<a href="" ngm-click="auth.logout()" class="logout ui-btn-right">Sign Out</a>
+	</div>
+	<div data-role="content">
+		<div class="success" ngm-if="rental.successMessage">{{rental.successMessage}}</div>
+		<div class="list">
+			<ul data-role="listview" id="rentalHistoryPage_list">
+				<li> 
+					<div class="conversation-filter">{{comm.filter}}</div>
+				</li>
+				<li ng-repeat="conversation in comm.rentals | paged:{pageSize:5}"
+					class="rental"><a href=""
+					ngm-click="comm.showDetails(conversation.conversation._id)"> <img
+						ng-src="/network/images/{{conversation.profile.photo}}.jpg">
+						<h4>
+							<span class="conversation-author">{{conversation.profile.firstName}}
+								{{conversation.profile.lastName}}</span> 
+						</h4>
+						<p>
+							<span class="conversation-headline">{{conversation.headline}} </span>
+							<br />
+							<span class="conversation-message"> {{conversation.mostRecentMessage.text}}</span>
+							
+						</p>
+						<p class="ui-li-aside">
+							on: <span class="totalPrice">{{conversation.timestamp}}</span>
+						</p>
+				</a></li>
+				<li ngm-if="comm.rentals | paged:'hasMore'"><a href="#"
+					ngm-click="comm.rentals | paged:'loadMore'">More...</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="footer" data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="inboxSelection.html" data-icon="entarena-inbox" data-iconpos="top">Inbox</a></li>
+				<li><a href="filterSelection.html" data-icon="entarena-filter" data-iconpos="top">My
+						Filter</a></li>
+				<li><a href="" ngm-click="comm.show_post_Message(1)" data-icon="entarena-post" data-iconpos="top">Message</a></li>
+				<li><a href="" ngm-click="comm.show_post_Message(2)" data-icon="entarena-announce" data-iconpos="top">Announce</a></li>
+			</ul>			
+		</div>
+	</div>
+
+</div>

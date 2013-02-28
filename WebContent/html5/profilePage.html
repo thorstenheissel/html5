@@ -1,0 +1,36 @@
+<div id="profilePage" data-role="page" ngm-shared-controller="auth:rylc.AuthenticationController"
+	ngm-pagebeforeshow="auth.loadProfile()" data-title="Profile">
+    <div data-role="header">
+        <h1>Profil von {{auth.username}}</h1>
+        <a href="" data-rel="back" class="back">Zur&uuml;ck</a>
+        <a href="" ngm-click="auth.logout()" class="logout ui-btn-right">Logout</a>
+    </div>
+    <div data-role="content">
+        <div data-role="fieldcontain">
+            <label for="profilePage_username">User Name</label>
+            <input type="text" ng-model="auth.username" id="profilePage_username" disabled="true">
+        </div>
+        <div data-role="fieldcontain">
+            <label for="profilePage_name">Domain</label>
+            <input type="text" ng-model="auth.profile.domain" id="profilePage_name" disabled="true">
+        </div>
+        <br/>
+        <br/>
+        <div data-role="fieldcontain">
+            <label for="profilePage_street">First Name</label>
+            <input type="text" ng-model="auth.profile.firstName" id="profilePage_street" disabled="true">
+        </div>
+        <div data-role="fieldcontain">
+            <label for="profilePage_zip">Last Name</label>
+            <input type="text" ng-model="auth.profile.lastName" id="profilePage_zip" disabled="true">
+        </div>
+        <div data-role="fieldcontain">
+            <label for="profilePage_city">Job Title</label>
+            <input type="text" ng-model="auth.profile.jobTitle" id="profilePage_city" disabled="true">
+        </div>
+        <div data-role="fieldcontain">
+            <label for="profilePage_email">Summary</label>
+            <input type="text" ng-model="auth.profile.summary" id="profilePage_email" disabled="true">
+        </div>
+    </div>
+</div>

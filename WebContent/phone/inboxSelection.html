@@ -1,0 +1,44 @@
+<div id="postMessage" data-role="page"
+     ngm-shared-controller="comm:entarena.CommunicationController,auth:entarena.AuthenticationController"
+     >
+    <div data-role="header">
+        <h1>Select your Inbox</h1>
+        <a href="" data-rel="back" class="back">Cancel</a>
+        <a href="" ngm-click="auth.logout()" class="logout ui-btn-right">Sign Out</a>
+    </div>
+    <div data-role="content" >
+        <div class="content-primary">
+			<ul data-role="listview">
+				<li data-role="list-divider">Conversation Filter</li>
+				<li><a href=""ngm-click="comm.loadConversationsFor('All Conversations')">All Conversations</a></li>
+				<li><a href="" ngm-click="comm.loadConversationsFor('Announcement')">Announcements</a></li>
+				<li><a href="" ngm-click="comm.loadConversationsFor('Private Conversations')">Private</a></li>
+				<li data-role="list-divider">Conversation I Started</li>
+				<li><a href="" ngm-click="comm.loadConversationsFor('All Conversations I started')">All</a></li>
+				<li><a href="" ngm-click="comm.loadConversationsFor('with Marketing List')">with Marketing List</a></li>
+				<li><a href=""ngm-click="comm.loadConversationsFor('with Finance List')">with Finance List</a></li>
+				<li data-role="list-divider">Private Company Groups</li>
+				<li><a href="" ngm-click="comm.loadConversationsFor('Management Group')">Management</a></li>
+				<li><a href="" ngm-click="comm.loadConversationsFor('CFOs Group')">CFOs</a></li>			
+				<li data-role="list-divider">My Open Company Groups</li>
+				<li><a href="" ngm-click="comm.loadConversationsFor('Product One Group')">Product One</a></li>
+				<li><a href="" ngm-click="comm.loadConversationsFor('Frankfurt Office Group')">Frankfurt Office</a></li>
+			</ul>
+			</div><!--/content-primary -->		
+ 
+    </div>
+    
+ <!-- 	<div id="footer" data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="inboxSelection.html" data-icon="entarena-inbox" data-iconpos="top">Inbox</a></li>
+				<li><a href="filterSelection.html" data-icon="entarena-filter" data-iconpos="top">My
+						Filter</a></li>
+				<li><a href="" ngm-click="comm.postMessage(1)" data-icon="entarena-post" data-iconpos="top">Message</a></li>
+				<li><a href="" ngm-click="comm.postMessage(2)" data-icon="entarena-announce" data-iconpos="top">Announce</a></li>
+			</ul>			
+		</div>
+	</div>
+-->
+	
+</div>

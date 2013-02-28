@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <!--Sidebar content-->
+
+	<h1>{{phone.creator.firstName}} with </h1>
+ 	<p>{{phone.headline}}</p>
+
+    </div>
+    <div class="span10">
+      <!--Body content-->
+
+      <ul class="phones">
+        <li ng-repeat="message in phone.messages"  class="thumbnail">
+          <a href="" class="thumb"><img ng-src="/network/images/{{message.profile.photo}}.jpg"></a>
+          <a href="">{{message.profile.firstName}} am {{message.timestamp}}</a>
+          <p><br/>{{message.text}}</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>

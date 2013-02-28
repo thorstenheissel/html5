@@ -1,0 +1,96 @@
+<div id="postMessage" data-role="page"
+     ngm-shared-controller="comm:entarena.CommunicationController,auth:entarena.AuthenticationController"
+     ngm-pagebeforeshow="comm.loadRecipients()">
+    <div data-role="header" id="postMessageHeader">
+        <h1>Create Announcement</h1>
+        <a href="" data-rel="back" class="back">Cancel</a>
+        <a href="" ngm-click="auth.logout()" class="logout ui-btn-right">Sign Out</a>
+    </div>
+    <div data-role="content" ng-form name="postMessageForm" ng-submit="comm.announce()">
+    
+    
+	<div data-role="popup" id="addRecipient" data-corners="false" data-theme="none" data-shadow="false" 
+				data-tolerance="0,0" >
+	<h4>Select the recipient</h4>
+        <ul data-role="listview" id="addRecipientList">
+            <li ng-repeat="recipient in comm.recipient_list | filter:{type:'user'} ">
+            	<a href="" ngm-click="comm.addRecipient(recipient)">
+                  <h4><span class="manufacturer">{{recipient.name}}</span> </h4>   
+                </a>      
+            </li>
+        </ul>
+  
+	</div>
+
+    
+    
+        <div class="error" ngm-if="comm.errorMessage">{{rental.errorMessage}}</div>
+   
+          <div data-role="fieldcontain">
+            <label for="AnnounceSubject" class="ui-hidden-accessible">Subject</label>
+            
+            <input type="text" id="AnnounceSubject" ng-model="comm.messageSubject" ng-required="true" ></input>
+        </div>
+ 
+        
+        <div data-role="fieldcontain">
+            <label for="AnnounceText" class="ui-hidden-accessible">Message</label>
+            
+            <textarea type="textarea" id="AnnounceText" ng-model="comm.messageText" ng-required="true" ></textarea>
+        </div>
+
+
+
+		<div class="entarena-post-icons">
+			<a href="index.html" data-role="button"
+				data-icon="entarena-attach-file" data-iconpos="notext"
+				data-inline="true"></a> <a href="index.html" data-role="button"
+				data-icon="entarena-attach-link" data-iconpos="notext"
+				data-inline="true"></a> <a href="index.html" data-role="button"
+				data-icon="entarena-attach-foto" data-iconpos="notext"
+				data-inline="true"></a> <a href="index.html" data-role="button"
+				data-icon="entarena-attach-video" data-iconpos="notext"
+				data-inline="true"></a>
+		</div>
+		
+		<div ng-show="comm.postMessageMode==1" class="entarena-recipient-list">
+			<h4>Recipient List</h4>
+			<ul data-role="listview" data-inset="true">
+				<li ng-repeat="recipient in comm.selected_recipients ">{{recipient.name}}</li>
+						
+			</ul>		
+		</div>
+
+
+
+
+	</div>
+    
+   	<div id="footer" data-role="footer" data-position="fixed">
+   <!--   	<input type="submit" class="postMessage" value="Post"  
+  					ng-disabled="!postMessageForm$valid">    
+  		
+    		<a href="" ng-show="comm.postMessageMode==1" data-rel="back" class="back">Post Message</a>	
+    		<a href="" ng-show="comm.postMessageMode==2" data-rel="back" class="back">Announce</a>	
+  					
+  -->					
+	<div data-role="navbar">
+			<ul>
+				<li ng-show="comm.postMessageMode==1" ><a href="" ngm-click="comm.post_Message()" 
+										data-icon="entarena-post" data-iconpos="top">Post Message</a></li>		
+				<li ng-show="comm.postMessageMode==2" ><a href="" ngm-click="comm.post_Message()"
+										data-icon="entarena-announce" data-iconpos="top">Announce</a></li>		
+  				<li ng-show="comm.postMessageMode==1" ><a href="#addRecipient" data-rel="popup" 
+  							data-transition="slide" data-position-to="#postMessageHeader"
+  							data-icon="plus" data-iconpos="top">Add Recipient</a></li>
+				<li><a href="" data-rel="back" data-icon="delete" data-iconpos="top">Cancel</a></li>
+			</ul>			
+		</div>		
+	</div>
+	
+	
+	
+</div>
+
+
+ 

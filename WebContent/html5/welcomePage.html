@@ -1,0 +1,17 @@
+<div id="welcomePage" data-role="page" ngm-shared-controller="rental:rylc.RentalController,auth:rylc.AuthenticationController"
+     ngm-pagebeforeshow="rental.prefetchMasterData()" ngm-pagebeforehide="rental.clearMessages()" data-title="Welcome">
+    <div data-role="header">
+        <h1 class="greeting">Welcome {{auth.customer().profile.login}}</h1>
+        <a href="" ngm-click="auth.logout()" class="logout ui-btn-right">Logout</a>
+    </div>
+    <div data-role="content">
+        <div class="error" ngm-if="rental.errorMessage">{{rental.errorMessage}}</div>
+        <div class="success" ngm-if="rental.successMessage">{{rental.successMessage}}</div>
+        <a href="#conversationList" data-role="button" class="rentalHistory">Conversation List</a>    
+        <a href="" data-role="button" class="newRental" ngm-click="rental.initRental()">New Announcement</a>
+        <a href="#bis" data-role="button" class="profile">Bankinformationen</a>
+        <a href="#profilePage" data-role="button" class="profile">View Profile</a>
+     
+        
+    </div>
+</div>

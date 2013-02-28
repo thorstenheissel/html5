@@ -1,0 +1,47 @@
+<div id="conversation" data-role="page" 
+     ngm-shared-controller="comm:entarena.CommunicationController,auth:entarena.AuthenticationController"
+    data-title="Conversation Detail" >
+    <div data-role="header">
+        <h1>Context Details</h1>
+        <a href="" data-rel="back" class="back">Back</a>
+        <a href="" ngm-click="auth.logout()" class="logout ui-btn-right">Logout</a>
+    </div>
+    <div data-role="content">
+        <div ngm-if="comm.errorMessage" class="error">{{errorMessage}}</div>
+        <div ngm-if="comm.infoMessage()" class="info">{{infoMessage()}}</div>
+<!--         <div class="info">{{rentals}}</div> 
+	<h2>{{comm.conversation.creator.firstName}} with </h2>
+ 	<p>{{comm.conversation.headline}}</p>
+
+		<div class="info"><img ng-src="/network/images/{{rentals.conversation[1].profile.photo}}.jpg"></div> -->
+		
+		<div>
+				<spawn class="entarena-context-icon" entarena-context-type="{{comm.conversation.context.type}}"> </spawn>
+				<h4 class="entarena-context-title" >{{comm.conversation.headline}}</h4>
+				<p> </p>
+		</div>
+		
+		
+		<div> 
+			<br><br>
+			<p>Hier wird der Context besser beschrieben</p>
+		</div>
+ 
+ 
+    </div>
+    
+    <div id="footer" data-role="footer" data-position="fixed">
+ 
+<!--  		<div data-role="navbar">
+			<ul>
+				<li><a href="inboxSelection.html" data-icon="entarena-inbox" data-iconpos="top">Inbox</a></li>
+				<li><a href="filterSelection.html" data-icon="entarena-filter" data-iconpos="top">My
+						Filter</a></li>
+				<li><a href="" ngm-click="comm.postMessage(1)" data-icon="entarena-post" data-iconpos="top">Message</a></li>
+				<li><a href="" ngm-click="comm.postMessage(2)" data-icon="entarena-announce" data-iconpos="top">Announce</a></li>
+			</ul>			
+		</div>-->
+	</div>
+    
+    
+</div>

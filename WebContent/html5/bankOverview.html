@@ -1,0 +1,45 @@
+<div id="profilePage" data-role="page" ngm-shared-controller="auth:rylc.AuthenticationController"
+	 data-title="Bank Overview">
+    <div data-role="header">
+        <h1>Overview for {{auth.bankdetail._bankName}}</h1>
+<!--         <h2>Overview for {{auth.bankdetail._bankName}}</h1> -->
+        <a href="" data-rel="back" class="back">Zur&uuml;ck</a>
+        <a href="" ngm-click="auth.logout()" class="logout ui-btn-right">Logout</a>
+    </div>
+    <div data-role="content">
+    
+    
+        <div data-role="fieldcontain">
+            <label for="profilePage_username">Kreditlinie</label>
+            <input type="text" ng-model="auth.bankdetail._bankCreditLine" id="profilePage_username" disabled="true">
+            <br>Kreditlinie {{auth.bankdetail._bankCreditLine | currency}}<br>
+        </div>
+        <div data-role="fieldcontain">
+            <label for="profilePage_name">Emittenten-Rating</label>
+            <input type="text" ng-model="auth.bankdetail._spRatingEmittent" id="profilePage_name" disabled="true">
+        </div>
+        <div data-role="fieldcontain">
+            <label for="profilePage_street">Short-term-Rating</label>
+            <input type="text" ng-model="auth.bankdetail._spRatingShortTerm" id="profilePage_street" disabled="true">
+        </div>
+        <div data-role="fieldcontain">
+            <label for="profilePage_zip">Rating Outlook</label>
+            <input type="text" ng-model="auth.bankdetail._spRatingSTOutlook" id="profilePage_zip" disabled="true">
+        </div>
+        <div data-role="fieldcontain">
+            <label for="profilePage_city">CDS 1 Jahr</label>
+            <input type="text" ng-model="auth.bankdetail._cds1Y" id="profilePage_city" disabled="true">
+        </div>
+        
+        <br> <br>
+        <ul data-role="listview" id="bankOverview_list">
+	    	 <li ng-repeat="details in auth.bank" class="rental">
+		    	 
+		    	 	<h4><span class="manufacturer">    {{details.name}}: {{details.dataFields}}</span></h4>
+		    	 
+	    	 </li>
+    	 </ul>
+        
+       
+    </div>
+</div>

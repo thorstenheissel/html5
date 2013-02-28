@@ -1,0 +1,27 @@
+<div id="rental1Page" data-role="page"
+     ngm-shared-controller="rental:rylc.RentalController,auth:rylc.AuthenticationController"
+     >
+    <div data-role="header">
+        <h1>Create Announcement</h1>
+        <a href="" data-rel="back" class="back">Zur&uuml;ck</a>
+        <a href="" ngm-click="auth.logout()" class="logout ui-btn-right">Logout</a>
+    </div>
+    <div data-role="content" ng-form name="rentalForm">
+        <div class="error" ngm-if="rental.errorMessage">{{rental.errorMessage}}</div>
+   
+          <div data-role="fieldcontain">
+            <label for="AnnounceSubject">Subject</label>
+            <input type="text" height="200px" width="500px" id="AnnounceSubject" ng-model="rental.announceSubject" ng-required="true" ></input>
+        </div>
+ 
+        
+        <div data-role="fieldcontain">
+            <label for="AnnounceText">Message</label>
+            <input type="text" height="200px" width="500px" id="AnnounceText" ng-model="rental.announceText" ng-required="true" ></input>
+        </div>
+ 
+        <button class="search" ng-disabled="!rentalForm.$valid"
+                ngm-click="rental.announce()"
+                data-role="button">Announce</button>
+    </div>
+</div>

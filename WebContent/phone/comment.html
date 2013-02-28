@@ -1,0 +1,56 @@
+<div id="conversation" data-role="page" 
+     ngm-shared-controller="comm:entarena.CommunicationController,auth:entarena.AuthenticationController"
+    data-title="Comment Message" >
+    <div data-role="header">
+        <h1>New Comment</h1>
+        <a href="" data-rel="back" class="back">Zur&uuml;ck</a>
+        <a href="" ngm-click="auth.logout()" class="logout ui-btn-right">Logout</a>
+    </div>
+    
+    
+    
+    <div data-role="content">
+        <div ngm-if="comm.errorMessage" class="error">{{errorMessage}}</div>
+        <div ngm-if="comm.infoMessage()" class="info">{{infoMessage()}}</div>
+<!--         <div class="info">{{rentals}}</div> 
+	<h2>{{comm.conversation.creator.firstName}} with </h2>
+ 	<p>{{comm.conversation.headline}}</p>
+
+		<div class="info"><img ng-src="/network/images/{{rentals.conversation[1].profile.photo}}.jpg"></div> -->
+		
+		<div class="entarena-context">
+			<a href="filterSelection.hmtl" class="ui-link-inherit">
+				<spawn class="entarena-context-icon" entarena-context-type="{{comm.conversation.context.type}}"> </spawn>
+				<spawn class="entarena-context-text" >{{comm.conversation.headline}}</spawn>
+			</a>
+		</div>
+ 
+        <ul data-role="listview" id="communincationDetail">
+            <li ng-repeat="message in comm.conversation.messages | paged:{pageSize:1}" class="entarena-message">
+                 
+                 <img ng-src="/network/images/{{message.profile.photo}}.jpg">
+                  <h4><span class="manufacturer">{{message.profile.firstName}} {{message.profile.lastName}}</span> </h4>
+                <p><span class="startDate">{{message.text}}</span> </p>
+                <p class="ui-li-aside">on: <span class="totalPrice">{{message.timestamp}}</span></p>              
+            </li>
+        </ul>
+        <div class="entarena-comment-area" ng-form name="postMessageForm" ng-submit="comm.announce()">      
+	        <div data-role="fieldcontain">
+	            <label for="AnnounceText" class="ui-hidden-accessible">Message</label>
+	            
+	            <textarea type="textarea" id="AnnounceText" ng-model="comm.messageText" ng-required="true" ></textarea>
+	        </div>
+        </div>
+    </div> <!-- end of page content-->
+    
+    <div id="footer" data-role="footer" data-position="fixed">
+  		<div data-role="navbar">
+			<ul>
+				<li><a href="" ngm-click="comm.comment()" data-icon="entarena-post" data-iconpos="top">Post Message</a></li>
+				<li><a href="" data-rel="back" data-icon="delete" data-iconpos="top">Cancel</a></li>
+			</ul>			
+		</div>
+	</div>
+    
+    
+</div>

@@ -1,0 +1,23 @@
+<div id="profilePage" data-role="page" ngm-shared-controller="auth:rylc.AuthenticationController"
+	ngm-pagebeforeshow="auth.loadBanks()" data-title="Bankinformationen">
+    <div data-role="header">
+        <h1>Bankenliste </h1>
+        <a href="" data-rel="back" class="back">Zur&uuml;ck</a>
+        <a href="" ngm-click="auth.logout()" class="logout ui-btn-right">Logout</a>
+    </div>
+    <div data-role="content">
+    
+<!--     	<h3>Banken Json {{auth.banks}}</h3> -->
+    	
+    	
+    	<ul data-role="listview" id="rentalHistoryPage_list">
+	    	 <li ng-repeat="bank in auth.banks | paged:{pageSize:5}" class="rental">
+		    	 <a href="" ngm-click="auth.showBankDetails(bank.bankID)">
+		    	 	<h4><span class="manufacturer">          {{bank.name}}</span></h4>
+		    	 </a>
+	    	 </li>
+    	 </ul>
+
+        
+    </div>
+</div>

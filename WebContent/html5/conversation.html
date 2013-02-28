@@ -1,0 +1,33 @@
+<div id="conversation" data-role="page" 
+     ngm-shared-controller="conv:rylc.RentalHistoryController,auth:rylc.AuthenticationController"
+    data-title="Conversation Detail" >
+    <div data-role="header">
+        <h1>Conversation Details ({{conv.headertext}})</h1>
+        <a href="" data-rel="back" class="back">Zur&uuml;ck</a>
+        <a href="" ngm-click="auth.logout()" class="logout ui-btn-right">Logout</a>
+    </div>
+    <div data-role="content">
+        <div ngm-if="conv.errorMessage" class="error">{{errorMessage}}</div>
+        <div ngm-if="conv.infoMessage()" class="info">{{infoMessage()}}</div>
+<!--         <div class="info">{{rentals}}</div> -->
+	<h2>{{conv.conversation.creator.firstName}} with </h2>
+ 	<p>{{conv.conversation.headline}}</p>
+
+<!-- 		<div class="info"><img ng-src="/network/images/{{rentals.conversation[1].profile.photo}}.jpg"></div> -->
+ 
+        <ul data-role="listview" id="rentalHistoryPage_list">
+            <li ng-repeat="message in conv.conversation.messages | paged:{pageSize:5}" class="rental">
+                 
+                 <img ng-src="/network/images/{{message.profile.photo}}.jpg">
+                  <h4><span class="manufacturer">{{message.profile.firstName}} {{message.profile.lastName}}</span> </h4>
+                <p><span class="startDate">{{message.text}}</span> </p>
+                <p class="ui-li-aside">on: <span class="totalPrice">{{message.timestamp}}</span></p>
+                
+                
+            </li>
+            <li ngm-if="conv.conversation.messages | paged:'hasMore'">
+                <a href="#" ngm-click="conv.conversation.messages | paged:'loadMore'">More...</a>
+            </li>
+        </ul>
+    </div>
+</div>
